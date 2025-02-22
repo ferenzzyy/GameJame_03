@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
 
     private float _xInput;
     private float _yInput;
-    
+
+    private bool _hasInteracted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +20,36 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Applying Player movement with input and speed
         pRB.velocity = new Vector2 (_xInput, _yInput) * playerSpeed * Time.deltaTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        InputHandler();
+     
+
+    }
+
+
+    private void InputHandler() 
+    {
+        // Player Input 
         _xInput = Input.GetAxis("Horizontal");
         _yInput = Input.GetAxis("Vertical");
 
-        print(new Vector2(_xInput, _yInput));
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //print("Interact Button");
+            _hasInteracted = true;
+
+        }
+
+    }
+
+    public bool GetHasInteracted()
+    {
+        return _hasInteracted;
     }
 }
