@@ -7,18 +7,6 @@ public class Dispenser : MonoBehaviour
 
     [SerializeField] private GameObject component;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DispenseComponent() 
     {
         switch (dispenserType)
@@ -46,8 +34,8 @@ public class Dispenser : MonoBehaviour
         print("You Got a Plastic Component");
 
         GameObject _item = Instantiate(component, gameObject.transform);
-        Component _itemType = _item.GetComponent<Component>();
-        _itemType.componentType = Component.ComponentType.PLASTIC;
+        GiftComponent _itemType = _item.GetComponent<GiftComponent>();
+        _itemType.componentType = GiftComponent.ComponentType.PLASTIC;
     }
 
 
@@ -56,8 +44,8 @@ public class Dispenser : MonoBehaviour
         // Instantiate prefab of Electronic component
         print("You Got a Electronic Component");
         GameObject _item = Instantiate(component, gameObject.transform);
-        Component _itemType = _item.GetComponent<Component>();
-        _itemType.componentType = Component.ComponentType.ELECTRONIC;
+        GiftComponent _itemType = _item.GetComponent<GiftComponent>();
+        _itemType.componentType = GiftComponent.ComponentType.ELECTRONIC;
     }
 
     private void DispenseMetal()
@@ -65,8 +53,8 @@ public class Dispenser : MonoBehaviour
         // Instantiate prefab of metal component
         print("You Got a Metal Component");
         GameObject _item = Instantiate(component, gameObject.transform);
-        Component _itemType = _item.GetComponent<Component>();
-        _itemType.componentType = Component.ComponentType.METAL;
+        GiftComponent _itemType = _item.GetComponent<GiftComponent>();
+        _itemType.componentType = GiftComponent.ComponentType.METAL;
     }
 
     private void DispenseWrapper()

@@ -36,16 +36,6 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-       
-    }
-
-
-    
-
-
-
     public bool GetCanInteract()
     {
         return _canInteract;

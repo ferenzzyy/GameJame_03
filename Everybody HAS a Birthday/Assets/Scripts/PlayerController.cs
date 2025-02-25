@@ -17,12 +17,6 @@ public class PlayerController : MonoBehaviour
         interact = GetComponent<Interactable>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         // Applying Player movement with input and speed
@@ -68,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private void HoldItem() 
     {
         item = interact.GetItem();
-        Component comp = item.GetComponent<Component>();
+        GiftComponent comp = item.GetComponent<GiftComponent>();
         comp.DisableCollision();
 
         item.transform.position = hands.position;
@@ -80,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (item != null) 
         {
-            Component comp = item.GetComponent<Component>();
+            GiftComponent comp = item.GetComponent<GiftComponent>();
             comp.EnableCollision();
 
             item.transform.SetParent(null);
