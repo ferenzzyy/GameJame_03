@@ -46,7 +46,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract())
         {
-            print("Interacted!");
+            Dispenser dispenser = interact.GetDispenser();
+
+            dispenser.DispenseComponent();
+            
 
 
         }
