@@ -9,13 +9,16 @@ public class Interactable : MonoBehaviour
     private string _ObjName;
     private Dispenser _dispenser;
 
+    private GameObject _item;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Interactable"))
         {
             _dispenser = collision.GetComponent<Dispenser>();
             _canInteract = true;
-            _ObjName = collision.gameObject.name;
+            //_ObjName = collision.gameObject.name;
+            _item = collision.gameObject;
 
 
 
@@ -29,7 +32,8 @@ public class Interactable : MonoBehaviour
         {
 
             _canInteract = false;
-            _ObjName = null;
+            //_ObjName = null;
+            _item = null;
             
             
         }
@@ -63,5 +67,10 @@ public class Interactable : MonoBehaviour
     public Dispenser GetDispenser() 
     {
         return _dispenser;
+    }
+
+    public GameObject GetItem() 
+    {
+        return _item;
     }
 }

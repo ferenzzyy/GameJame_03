@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D pRB;
     [SerializeField] private float playerSpeed = 20;
+    [SerializeField] private Transform hands;
 
     Interactable interact;
+    GameObject item;
 
     private float _xInput;
     private float _yInput;
@@ -47,13 +49,41 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract())
         {
             Dispenser dispenser = interact.GetDispenser();
+            // Checks if the object interacted with is a dispenser or not
+            if (dispenser != null) 
+            { 
+                dispenser.DispenseComponent();
+            }
+            else
+            {
+                // checks if the player isnt holding an item
+                if (item == null)
+                {
+                    HoldItem();
 
-            dispenser.DispenseComponent();
-            
-
+                }
+            }
 
         }
+        else if (Input.GetKeyDown(KeyCode.E) )
+        {
+            ReleaseItem();
+        }
 
+    }
+
+    private void HoldItem() 
+    {
+        item = interact.GetItem();
+        
+        item.transform.position = hands.position;
+        item.transform.SetParent(hands);
+        
+    }
+    private void ReleaseItem() 
+    {
+        item.transform.SetParent(null);
+        item = null;
     }
 
 }
