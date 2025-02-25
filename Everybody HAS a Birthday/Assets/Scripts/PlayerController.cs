@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -46,22 +44,17 @@ public class PlayerController : MonoBehaviour
         _xInput = Input.GetAxis("Horizontal");
         _yInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract())
+        if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract() && item == null)
         {
             Dispenser dispenser = interact.GetDispenser();
-            // Checks if the object interacted with is a dispenser or not
+            // Checks if the object interacted with is a dispenser or item
             if (dispenser != null) 
             { 
                 dispenser.DispenseComponent();
             }
             else
-            {
-                // checks if the player isnt holding an item
-                if (item == null)
-                {
-                    HoldItem();
-
-                }
+            {   
+                HoldItem();
             }
 
         }
@@ -75,15 +68,25 @@ public class PlayerController : MonoBehaviour
     private void HoldItem() 
     {
         item = interact.GetItem();
-        
+        Component comp = item.GetComponent<Component>();
+        comp.DisableCollision();
+
         item.transform.position = hands.position;
         item.transform.SetParent(hands);
+        
         
     }
     private void ReleaseItem() 
     {
-        item.transform.SetParent(null);
-        item = null;
+        if (item != null) 
+        {
+            Component comp = item.GetComponent<Component>();
+            comp.EnableCollision();
+
+            item.transform.SetParent(null);
+            item = null;
+        }
+        
     }
 
 }
