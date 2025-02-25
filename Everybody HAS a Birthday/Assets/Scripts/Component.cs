@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Component : MonoBehaviour
 {
-    private enum ComponentType {METAL, PLASTIC, ELECTRONIC };
+    public enum ComponentType {METAL, PLASTIC, ELECTRONIC };
 
-    [SerializeField] private ComponentType componentType;
+    public ComponentType componentType;
 
     [SerializeField] Collider2D itemCol;
     // Start is called before the first frame update
@@ -30,5 +30,7 @@ public class Component : MonoBehaviour
         //collider2D = GetComponentInChildren<Collider2D>();
         itemCol.enabled = true;
     }
+
+    
 
 }

@@ -44,6 +44,10 @@ public class Dispenser : MonoBehaviour
     {
         // Instantiate prefab of plastic component
         print("You Got a Plastic Component");
+
+        GameObject _item = Instantiate(component, gameObject.transform);
+        Component _itemType = _item.GetComponent<Component>();
+        _itemType.componentType = Component.ComponentType.PLASTIC;
     }
 
 
@@ -51,12 +55,18 @@ public class Dispenser : MonoBehaviour
     {
         // Instantiate prefab of Electronic component
         print("You Got a Electronic Component");
+        GameObject _item = Instantiate(component, gameObject.transform);
+        Component _itemType = _item.GetComponent<Component>();
+        _itemType.componentType = Component.ComponentType.ELECTRONIC;
     }
 
     private void DispenseMetal()
     {
         // Instantiate prefab of metal component
         print("You Got a Metal Component");
+        GameObject _item = Instantiate(component, gameObject.transform);
+        Component _itemType = _item.GetComponent<Component>();
+        _itemType.componentType = Component.ComponentType.METAL;
     }
 
     private void DispenseWrapper()
