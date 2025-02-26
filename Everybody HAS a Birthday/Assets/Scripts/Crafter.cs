@@ -8,6 +8,7 @@ public class Crafter : MonoBehaviour
     
     [SerializeField] private List<GameObject> completedGifts = new List<GameObject>();
 
+    private string _resultRecipe;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,12 +19,9 @@ public class Crafter : MonoBehaviour
             if (_giftComp != null && _components.Count < 3)
             {
                 _components.Add(_giftComp.componentType.ToString());
-
-
                 Destroy(collision.gameObject);
 
-                string _resultRecipe = string.Join(", ", _components.ToArray());
-                CheckForRecipe(_resultRecipe);
+                _resultRecipe = string.Join(", ", _components.ToArray());
 
                 for (int i = 0; i < _components.Count; i++)
                 {
@@ -34,6 +32,7 @@ public class Crafter : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             } 
+            CheckForRecipe(_resultRecipe);
 
             
 
@@ -48,35 +47,52 @@ public class Crafter : MonoBehaviour
             case "METAL, METAL, METAL":
                 // SPAWN IN TUNGSTEN CUBE
                 print("CUBE!");
+                _components.Clear();
                 break;
             case "METAL, METAL, PLASTIC":
                 print("MODEL CAR!");
+                _components.Clear();
                 break;
             case "METAL, METAL, ELECTRONIC":
                 print("ROCKET");
+                _components.Clear();
                 break;
             case "METAL, PLASTIC, ELECTRONIC":
                 print("LAPTOP/RC-CAR");
+                _components.Clear();
                 break;
             case "PLASTIC, PLASTIC, ELECTRONIC":
                 print("PHONE");
+                _components.Clear();
                 break;
             case "PLASTIC, ELECTRONIC, ELECTRONIC":
+                _components.Clear();
                 print("TRANSFORMER");
                 break;
             case "PLASTIC, PLASTIC, PLASTIC":
+                _components.Clear();
                 print("VIYNL FIGURINE");
                 break;
             case "PLASTIC, PLASTIC, METAL":
                 print("SUPERHERO FIGURINE");
+                _components.Clear();
                 break;
             case "ELECTRONIC, ELECTRONIC, METAL":
                 print("POWER BANK");
+                _components.Clear();
                 break;
             case "ELECTRONIC, ELECTRONIC, ELECTRONIC":
                 print("ZEUS");
+                _components.Clear();
                 break;
-
+            default:
+                if (_components.Count == 3)
+                {
+                    print("Invalid recipe");
+                    _components.Clear();
+                    
+                }
+                break;
         }
 
     }
