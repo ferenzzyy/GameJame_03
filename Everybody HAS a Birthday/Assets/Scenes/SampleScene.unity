@@ -539,6 +539,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 288609344}
+  - {fileID: 738733775}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &393487526
@@ -553,17 +554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e902b9eb7115e584a9d22fc37a5f2fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completedGifts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  gift: {fileID: 1955542698871842833, guid: 79048255e540ce04297007ec20c78db3, type: 3}
+  giftSpawnOffset: {fileID: 738733775}
 --- !u!58 &393487527
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -690,6 +682,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &738733774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738733775}
+  m_Layer: 0
+  m_Name: SpawnOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &738733775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738733774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: -1.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 393487525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914318266
 GameObject:
@@ -915,7 +938,6 @@ GameObject:
   - component: {fileID: 1528110785}
   - component: {fileID: 1528110784}
   - component: {fileID: 1528110783}
-  - component: {fileID: 1528110786}
   m_Layer: 0
   m_Name: WrapperDispenser
   m_TagString: Interactable
@@ -1026,20 +1048,6 @@ Transform:
   - {fileID: 1862345658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1528110786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528110782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9750a94bcc4ca774eb73c9259b17cdee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dispenserType: 3
-  component: {fileID: 2544344101491407801, guid: 765f26853716c034eb3ef62d4a1561a6, type: 3}
 --- !u!1 &1536242823
 GameObject:
   m_ObjectHideFlags: 0

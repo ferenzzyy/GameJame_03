@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Dispenser : MonoBehaviour
 {
-    private enum DispenserType { PLASTIC, METAL, ELECTRONIC, WRAPPER };
+    private enum DispenserType { PLASTIC, METAL, ELECTRONIC };
     [SerializeField] private DispenserType dispenserType;
 
     [SerializeField] private GameObject component;
@@ -19,9 +19,6 @@ public class Dispenser : MonoBehaviour
                 break;
             case DispenserType.METAL:
                 DispenseMetal();
-                break;
-            case DispenserType.WRAPPER:
-                DispenseWrapper();
                 break;
         }
     }
@@ -57,9 +54,5 @@ public class Dispenser : MonoBehaviour
         _itemType.componentType = GiftComponent.ComponentType.METAL;
     }
 
-    private void DispenseWrapper()
-    {
-        // Instantiate prefab of wrapper
-        print("You Got a Wrapper Component");
-    }
+   
 }

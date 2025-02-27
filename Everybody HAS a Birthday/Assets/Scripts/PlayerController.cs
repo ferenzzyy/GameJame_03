@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour
     private void HoldItem() 
     {
         item = interact.GetItem();
-        GiftComponent comp = item.GetComponent<GiftComponent>();
-        comp.DisableCollision();
+        HoldableItem _item = item.GetComponent<HoldableItem>();
+        _item.DisableCollision();
 
         item.transform.position = hands.position;
         item.transform.SetParent(hands);
@@ -74,8 +74,8 @@ public class PlayerController : MonoBehaviour
     {
         if (item != null) 
         {
-            GiftComponent comp = item.GetComponent<GiftComponent>();
-            comp.EnableCollision();
+            HoldableItem _item = item.GetComponent<HoldableItem>();
+            _item.EnableCollision();
 
             item.transform.SetParent(null);
             item = null;
