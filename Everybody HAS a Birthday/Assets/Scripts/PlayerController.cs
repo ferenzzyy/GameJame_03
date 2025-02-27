@@ -38,9 +38,9 @@ public class PlayerController : MonoBehaviour
         _xInput = Input.GetAxis("Horizontal");
         _yInput = Input.GetAxis("Vertical");
 
+        Dispenser dispenser = interact.GetDispenser();
         if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract() && item == null)
         {
-            Dispenser dispenser = interact.GetDispenser();
             // Checks if the object interacted with is a dispenser or item
             if (dispenser != null) 
             { 
@@ -49,12 +49,14 @@ public class PlayerController : MonoBehaviour
             else
             {   
                 HoldItem();
+                
             }
 
         }
         else if (Input.GetKeyDown(KeyCode.E) )
         {
             ReleaseItem();
+            dispenser = null;
         }
 
     }

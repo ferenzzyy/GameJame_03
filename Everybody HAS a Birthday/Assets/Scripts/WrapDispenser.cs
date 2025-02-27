@@ -6,16 +6,30 @@ public class WrapDispenser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Interactable"))
+        if (collision.CompareTag("Gift"))
         {
-            Gift _giftComp = collision.GetComponent<Gift>();
+            Gift _gift = collision.GetComponent<Gift>();
 
-            if (_giftComp != null) 
+            if (_gift != null && !_gift.GetIsWrapped()) 
             {
-                _giftComp.SetIsWrapped(true);
+                HoldGift(collision.transform);
+                _gift.SetIsWrapped(true);
             }
 
+            
+
         }
+    }
+
+    private void HoldGift(Transform gift)
+    {
+        
+        gift.position = giftStation.position;
+        gift.SetParent(giftStation);
+    }
+    private void ReleaseGift(Transform gift)
+    {
+        gift.SetParent(null);
     }
 
     // TODO create Ienumerator for wrapping.
