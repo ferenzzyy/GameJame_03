@@ -37,6 +37,7 @@ public class GiftAccepter : MonoBehaviour
                     if (gift.GetIsWrapped() == _ordersWantedWrapped[i] && gift.giftName == _orders[i].GetComponent<Order>().orderName)
                     {
                         _orderFullfilled = true;
+                        GameManager.AddMoney(Random.Range(10,26));
                         Destroy(_orders[i]);    
                         Destroy(collision.gameObject);
                     }

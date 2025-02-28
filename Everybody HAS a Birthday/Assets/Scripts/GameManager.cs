@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
-    private static int money = 10;
+    private static int money;
     private void Awake()
     {
         if (manager == null)
