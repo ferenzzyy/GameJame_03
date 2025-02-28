@@ -14,8 +14,13 @@ public class GiftAccepter : MonoBehaviour
     private List<GameObject> _orders = new List<GameObject>();
     private List<bool> _ordersWantedWrapped = new List<bool>();
 
+    UIManager _uiManager;
 
-    
+    private void Awake()
+    {
+        _uiManager = FindObjectOfType<UIManager>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,8 +56,8 @@ public class GiftAccepter : MonoBehaviour
             if (_orders[i] == null)
             {
                 _orders.RemoveAt(i);
-                _ordersWantedWrapped.RemoveAt(i);   
-
+                _ordersWantedWrapped.RemoveAt(i);
+                _uiManager.RemoveOrderUI(i);
             }
         }
         CheckForOrders();
@@ -101,6 +106,11 @@ public class GiftAccepter : MonoBehaviour
     {
         _orders.Add(order);
         _ordersWantedWrapped.Add(ordersWrapped);
+    }
+
+    public bool GetOrderDone()
+    {
+        return _orderFullfilled;
     }
 
     // Check if gift is placed here 

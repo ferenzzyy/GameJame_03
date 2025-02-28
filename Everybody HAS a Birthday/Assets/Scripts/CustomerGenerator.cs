@@ -10,11 +10,15 @@ public class CustomerGenerator : MonoBehaviour
 
     private List<GameObject> _customersSpawned = new List<GameObject>();
     private float _spawnCountdown;
+    private UIManager _uiManager;
 
-    void Start()
+    private void Awake()
     {
+        _uiManager = FindObjectOfType<UIManager>();
         _spawnCountdown = timeToSpawn;
     }
+
+  
 
     // Update is called once per frame
     void Update()
@@ -49,7 +53,7 @@ public class CustomerGenerator : MonoBehaviour
 
     private void SpawnCustomers()
     {
-        Gift.GiftNames orderType = (Gift.GiftNames)Random.Range(0, 11);
+        Gift.GiftNames orderType = (Gift.GiftNames)Random.Range(0, 10);
         int _orderWrapped = Random.Range(1, 3);
 
         print(_orderWrapped);
@@ -71,6 +75,7 @@ public class CustomerGenerator : MonoBehaviour
         _customersSpawned.Add(_customerSpawned);
 
         giftAccept.AddToOrders(_customerSpawned, order.GetWantedWrapped());
+        _uiManager.AddToOrderUI(orderType, order.GetWantedWrapped());
 
     }
 
