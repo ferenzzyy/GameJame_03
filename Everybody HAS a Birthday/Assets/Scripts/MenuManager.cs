@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject[] menus;
+    [SerializeField] TextMeshProUGUI totalMoneyText;
     private bool _isPaused;
     // Start is called before the first frame update
     void Start()
     {
         CheckForScene();
+
+        totalMoneyText.text = "You Earned: $" + GameManager.GetMoney().ToString();
     }
 
     // Update is called once per frame

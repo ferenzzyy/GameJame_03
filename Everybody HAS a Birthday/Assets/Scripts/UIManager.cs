@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timer%60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+        moneyText.text = "$: "+GameManager.GetMoney().ToString();
+
     }
 
 
