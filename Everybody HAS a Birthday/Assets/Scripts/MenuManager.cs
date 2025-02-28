@@ -23,13 +23,17 @@ public class MenuManager : MonoBehaviour
         //CheckForScene();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!_isPaused)
+            if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                PauseGame();
-            }
-            else
-            {
-                ResumeGame();
+                
+                if (!_isPaused)
+                {
+                    PauseGame();
+                }
+                else
+                {
+                    ResumeGame();
+                }
             }
         }
         
