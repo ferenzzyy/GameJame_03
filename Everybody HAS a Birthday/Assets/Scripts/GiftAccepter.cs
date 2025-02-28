@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GiftAccepter : MonoBehaviour
 {
 
     private bool _orderFullfilled = false;
-    private float _orderTimer = 10;
+    [SerializeField] float gameTimer = 5;
 
     private bool _correctOrder;
 
-    private bool _currentOrderDone = false;
+    //private bool _currentOrderDone = false;
 
     private List<GameObject> _orders = new List<GameObject>();
     private List<bool> _ordersWantedWrapped = new List<bool>();
@@ -68,36 +69,38 @@ public class GiftAccepter : MonoBehaviour
 
     private void CheckForOrders()
     {
-        if (!_currentOrderDone)
-        {
-            GiftTimer();
-            if (!_orderFullfilled && _orderTimer < 0)
-            {
-                print("Order failed!");
-                _currentOrderDone = true;
-            }
+        //if (!_currentOrderDone)
+        //{
+        //    GiftTimer();
+        //    if (!_orderFullfilled && orderTimer < 0)
+        //    {
+        //        print("Order failed!");
+        //        _currentOrderDone = true;
+        //    }
 
-            if (_orderFullfilled)
-            {
-                print("Order Success");
-                _currentOrderDone = true;
-                _orderFullfilled = false;
-            }
+        //    if (_orderFullfilled)
+        //    {
+        //        print("Order Success");
+        //        _currentOrderDone = true;
+        //        _orderFullfilled = false;
+        //    }
 
 
-        }
-        _currentOrderDone = false;
+        //}
+        //_currentOrderDone = false;
+        GameTimer();
     }
 
-    private void GiftTimer()
+    private void GameTimer()
     {
-        if (_orderTimer > 0)
+        if (gameTimer > 0)
         {
-            _orderTimer -= Time.deltaTime;
+            gameTimer -= Time.deltaTime;
         }
         else
         {
-            _orderTimer = 10;
+            gameTimer = 0;
+            SceneManager.LoadScene("EndGame");
             
         }
     }
@@ -111,6 +114,11 @@ public class GiftAccepter : MonoBehaviour
     public bool GetOrderDone()
     {
         return _orderFullfilled;
+    }
+
+    public float GetGameTimer()
+    {
+        return gameTimer;
     }
 
     // Check if gift is placed here 

@@ -18,12 +18,28 @@ public class UIManager : MonoBehaviour
     // Store different recipe sprites
     [SerializeField] Sprite[] orderRecipes;
 
-   
+    private GiftAccepter giftAccept;
+
+    private void Awake()
+    {
+        giftAccept = FindObjectOfType<GiftAccepter>();
+    }
 
     private void Update()
     {
         CheckRecipeToDisplay();
+        UpdateGUI();
     }
+
+    private void UpdateGUI()
+    {
+        float timer = giftAccept.GetGameTimer();
+        int minutes = Mathf.FloorToInt(timer/60);
+        int seconds = Mathf.FloorToInt(timer%60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+    }
+
 
     private void CheckRecipeToDisplay()
     {
