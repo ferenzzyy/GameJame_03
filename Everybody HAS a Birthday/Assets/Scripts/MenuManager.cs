@@ -41,21 +41,30 @@ public class MenuManager : MonoBehaviour
 
     void CheckForScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        switch (SceneManager.GetActiveScene().buildIndex)
         {
-            menus[0].SetActive(true);
-            menus[1].SetActive(false);
-            menus[2].SetActive(false);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            menus[0].SetActive(false);
-            menus[1].SetActive(false);
-            menus[2].SetActive(false);
-            if (menus[3] != null)
-            {
+            case 0:
+                menus[0].SetActive(true);
+                menus[1].SetActive(false);
+                menus[2].SetActive(false);
+                menus[3].SetActive(false);
+                break;
+            case 1:
+                menus[0].SetActive(false);
+                menus[1].SetActive(false);
+                menus[2].SetActive(false);
+                menus[3].SetActive(false);
+                if (menus[4] != null)
+                {
+                    menus[4].SetActive(true);
+                }
+                break;
+            case 2:
+                menus[0].SetActive(false);
+                menus[1].SetActive(false);
+                menus[2].SetActive(false);
                 menus[3].SetActive(true);
-            }
+                break;
         }
     }
 
@@ -68,16 +77,17 @@ public class MenuManager : MonoBehaviour
         menus[0].SetActive(false);
         menus[1].SetActive(true);
         menus[2].SetActive(false);
+        menus[3].SetActive(false);
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            menus[3].SetActive(false);
+            menus[4].SetActive(false);
         }
     }
 
     public void StartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(0).name);
+        SceneManager.LoadScene("MainGame");
 
     }
 
@@ -100,12 +110,14 @@ public class MenuManager : MonoBehaviour
         menus[0].SetActive(true);
         menus[1].SetActive(false);
         menus[2].SetActive(false);
+        menus[3].SetActive(false);
 
         if (_isPaused)
         {
             menus[0].SetActive(false);
             menus[1].SetActive(true);
             menus[2].SetActive(false);
+            menus[3].SetActive(false);
         }
 
 
@@ -118,16 +130,17 @@ public class MenuManager : MonoBehaviour
         menus[0].SetActive(false);
         menus[1].SetActive(false);
         menus[2].SetActive(false);
+        menus[3].SetActive(false);
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            menus[3].SetActive(true);
+            menus[4].SetActive(true);
         }
     }
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(0).name);
+        SceneManager.LoadScene("MainMenu");
 
     }
 }
