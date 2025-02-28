@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D pRB;
@@ -37,6 +38,26 @@ public class PlayerController : MonoBehaviour
         // Player Input 
         _xInput = Input.GetAxis("Horizontal");
         _yInput = Input.GetAxis("Vertical");
+
+        if (_xInput < 0 )
+        {
+            gameObject.transform.right = new Vector3(_xInput, 0);
+        }
+        if (_xInput > 0)
+        {
+            gameObject.transform.right = new Vector3(0,0);
+
+        }
+
+
+
+        if (_yInput < 0 || _yInput > 0)
+        {
+            gameObject.transform.up = new Vector3(-_yInput, 0);
+        }
+        
+
+
 
         Dispenser dispenser = interact.GetDispenser();
         if (Input.GetKeyDown(KeyCode.E) && interact.GetCanInteract() && item == null)

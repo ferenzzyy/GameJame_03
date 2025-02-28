@@ -6,7 +6,6 @@ public class Crafter : MonoBehaviour
 {
     private List<string> _components = new List<string>();
 
-    //[SerializeField] private List<GameObject> completedGifts = new List<GameObject>();
     [SerializeField] private GameObject gift;
     [SerializeField] private Transform giftSpawnOffset;
 

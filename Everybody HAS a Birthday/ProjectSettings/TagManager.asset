@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Gift
+  - Customer
   layers:
   - Default
   - TransparentFX
