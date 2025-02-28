@@ -58,6 +58,7 @@ public class MenuManager : MonoBehaviour
                 menus[1].SetActive(false);
                 menus[2].SetActive(false);
                 menus[3].SetActive(false);
+                GameManager.ResetMoney();
                 if (menus[4] != null)
                 {
                     menus[4].SetActive(true);

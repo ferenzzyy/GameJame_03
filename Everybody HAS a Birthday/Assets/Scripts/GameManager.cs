@@ -41,4 +41,9 @@ public class GameManager : MonoBehaviour
     {
         return money;
     }
+
+    public static void ResetMoney()
+    {
+        money = 0;
+    }
 }
