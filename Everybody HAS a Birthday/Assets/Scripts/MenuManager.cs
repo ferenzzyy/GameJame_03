@@ -43,6 +43,12 @@ public class MenuManager : MonoBehaviour
             menus[1].SetActive(false);
             menus[2].SetActive(false);
         }
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            menus[0].SetActive(false);
+            menus[1].SetActive(false);
+            menus[2].SetActive(false);
+        }
     }
 
  
@@ -58,11 +64,11 @@ public class MenuManager : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("MainGame");
-        print("Game Start");
-        menus[0].SetActive(false);
-        menus[1].SetActive(false);
-        menus[2].SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(0).name);
+        //print("Game Start");
+        //menus[0].SetActive(false);
+        //menus[1].SetActive(false);
+        //menus[2].SetActive(false);
     }
 
     public void OptionsButton()
