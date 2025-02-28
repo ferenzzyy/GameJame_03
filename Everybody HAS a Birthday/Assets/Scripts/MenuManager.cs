@@ -56,4 +56,14 @@ public class MenuManager : MonoBehaviour
         menus[1].SetActive(false);
         menus[2].SetActive(false);
     }
+
+    public void ResumeGame()
+    {
+
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
+    }
 }
