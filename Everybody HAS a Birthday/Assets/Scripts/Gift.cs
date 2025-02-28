@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Gift : MonoBehaviour
 {
+    [SerializeField] Sprite giftSprite;
     public enum GiftNames {
         TUNGSTEN_CUBE, 
         MODEL_CAR, 
@@ -19,10 +20,17 @@ public class Gift : MonoBehaviour
     
     private bool _isWrapped = false;
 
-    private void OnEnable()
+    private void Update()
     {
-        // switch statements for changing sprites based on gift
+        if (_isWrapped)
+        {
+            Sprite _sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+             _sprite = giftSprite;
+            
+
+        }
     }
+
 
     public bool GetIsWrapped()
     {
