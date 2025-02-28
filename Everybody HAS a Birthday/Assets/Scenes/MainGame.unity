@@ -2430,6 +2430,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1855195396}
     m_Modifications:
+    - target: {fileID: 5319450664512741224, guid: fa74462bbf3ba414ab51d5f5c3357b15, type: 3}
+      propertyPath: menus.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319450664512741224, guid: fa74462bbf3ba414ab51d5f5c3357b15, type: 3}
+      propertyPath: menus.Array.data[3]
+      value: 
+      objectReference: {fileID: 223735722}
     - target: {fileID: 7079019648341386120, guid: fa74462bbf3ba414ab51d5f5c3357b15, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
